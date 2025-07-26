@@ -1,7 +1,7 @@
-import SurveyDashboard from "@/components/SurveyDashboard";
+import OzoneDashboard from "@/components/OzoneDashboard";
 
 const Index = () => {
-  return <SurveyDashboard />;
+  return <OzoneDashboard />;
 };
 
 export default Index;

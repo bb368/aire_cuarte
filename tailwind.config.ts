@@ -57,6 +57,17 @@ export default {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
 				},
+				danger: {
+					DEFAULT: 'hsl(var(--danger))',
+					foreground: 'hsl(var(--danger-foreground))'
+				},
+				air: {
+					excellent: 'hsl(var(--air-excellent))',
+					good: 'hsl(var(--air-good))',
+					moderate: 'hsl(var(--air-moderate))',
+					poor: 'hsl(var(--air-poor))',
+					'very-poor': 'hsl(var(--air-very-poor))'
+				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
