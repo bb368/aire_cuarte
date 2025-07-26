@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, BarChart, Bar, ReferenceLine } from 'recharts';
 import { Wind, AlertTriangle, CheckCircle, Thermometer, Eye, Calendar } from "lucide-react";
 
 // Datos simulados basados en datos reales de calidad del aire de Zaragoza
@@ -220,7 +220,7 @@ export default function OzoneDashboard() {
                   fillOpacity={0.3}
                   strokeWidth={2}
                 />
-                <Area 
+                 <Area 
                   type="monotone" 
                   dataKey="casablanca" 
                   stackId="2"
@@ -228,6 +228,13 @@ export default function OzoneDashboard() {
                   fill="hsl(var(--accent))"
                   fillOpacity={0.3}
                   strokeWidth={2}
+                />
+                <ReferenceLine 
+                  y={80} 
+                  stroke="hsl(var(--air-good))" 
+                  strokeWidth={3}
+                  strokeDasharray="none"
+                  label={{ value: "Nivel Óptimo (80 μg/m³)", position: "top", fontSize: 12 }}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -259,11 +266,18 @@ export default function OzoneDashboard() {
                   name="Centro - Plaza España"
                   radius={4}
                 />
-                <Bar 
+                 <Bar 
                   dataKey="casablanca" 
                   fill="hsl(var(--accent))" 
                   name="Casablanca"
                   radius={4}
+                />
+                <ReferenceLine 
+                  y={80} 
+                  stroke="hsl(var(--air-good))" 
+                  strokeWidth={3}
+                  strokeDasharray="none"
+                  label={{ value: "Nivel Óptimo", position: "top", fontSize: 12 }}
                 />
               </BarChart>
             </ResponsiveContainer>
