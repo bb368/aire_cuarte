@@ -208,16 +208,22 @@ export default function OzoneDashboard() {
                   label={{ value: 'μg/m³', angle: -90, position: 'insideLeft' }}
                 />
                 <Tooltip 
+                  labelStyle={{ color: '#000' }}
                   contentStyle={{
                     backgroundColor: 'hsl(var(--card))',
                     border: '1px solid hsl(var(--border))',
                     borderRadius: '8px'
                   }}
-                  formatter={(value, name) => [
-                    `${value} μg/m³`, 
-                    name === 'centro' ? 'Centro - Plaza España' : 
-                    name === 'casablanca' ? 'Casablanca' : 'Cuarte de Huerva'
-                  ]}
+                  formatter={(value, name) => {
+                    const color = name === 'cuarte' ? '#16a34a' : '#000000'; // Verde oscuro para Cuarte, negro para otros
+                    return [
+                      <span style={{ color }}>{`${value} μg/m³`}</span>, 
+                      <span style={{ color }}>
+                        {name === 'centro' ? 'Centro - Plaza España' : 
+                         name === 'casablanca' ? 'Casablanca' : 'Cuarte de Huerva'}
+                      </span>
+                    ];
+                  }}
                 />
                  <Area 
                   type="monotone" 
@@ -271,10 +277,21 @@ export default function OzoneDashboard() {
                 <XAxis dataKey="day" stroke="hsl(var(--muted-foreground))" />
                 <YAxis stroke="hsl(var(--muted-foreground))" />
                 <Tooltip 
+                  labelStyle={{ color: '#000' }}
                   contentStyle={{
                     backgroundColor: 'hsl(var(--card))',
                     border: '1px solid hsl(var(--border))',
                     borderRadius: '8px'
+                  }}
+                  formatter={(value, name) => {
+                    const color = name === 'cuarte' ? '#16a34a' : '#000000'; // Verde oscuro para Cuarte, negro para otros
+                    return [
+                      <span style={{ color }}>{`${value} μg/m³`}</span>, 
+                      <span style={{ color }}>
+                        {name === 'centro' ? 'Centro - Plaza España' : 
+                         name === 'casablanca' ? 'Casablanca' : 'Cuarte de Huerva'}
+                      </span>
+                    ];
                   }}
                 />
                 <Bar 
