@@ -216,12 +216,11 @@ export default function OzoneDashboard() {
                   }}
                   formatter={(value, name) => {
                     const color = name === 'cuarte' ? '#16a34a' : '#000000'; // Verde oscuro para Cuarte, negro para otros
+                    const label = name === 'centro' ? 'Centro:' : 
+                                 name === 'casablanca' ? 'Casablanca:' : 'Cuarte:';
                     return [
                       <span style={{ color }}>{`${value} μg/m³`}</span>, 
-                      <span style={{ color }}>
-                        {name === 'centro' ? 'Centro - Plaza España' : 
-                         name === 'casablanca' ? 'Casablanca' : 'Cuarte de Huerva'}
-                      </span>
+                      <span style={{ color }}>{label}</span>
                     ];
                   }}
                 />
@@ -285,12 +284,11 @@ export default function OzoneDashboard() {
                   }}
                   formatter={(value, name) => {
                     const color = name === 'cuarte' ? '#16a34a' : '#000000'; // Verde oscuro para Cuarte, negro para otros
+                    const label = name === 'centro' ? 'Centro:' : 
+                                 name === 'casablanca' ? 'Casablanca:' : 'Cuarte:';
                     return [
                       <span style={{ color }}>{`${value} μg/m³`}</span>, 
-                      <span style={{ color }}>
-                        {name === 'centro' ? 'Centro - Plaza España' : 
-                         name === 'casablanca' ? 'Casablanca' : 'Cuarte de Huerva'}
-                      </span>
+                      <span style={{ color }}>{label}</span>
                     ];
                   }}
                 />
