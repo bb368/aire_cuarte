@@ -232,8 +232,8 @@ export default function OzoneDashboard() {
                   type="monotone" 
                   dataKey="casablanca" 
                   stackId="2"
-                  stroke="hsl(var(--accent))" 
-                  fill="hsl(var(--accent))"
+                  stroke="hsl(var(--casablanca-color))" 
+                  fill="hsl(var(--casablanca-color))"
                   fillOpacity={0.3}
                   strokeWidth={2}
                 />
@@ -241,8 +241,8 @@ export default function OzoneDashboard() {
                   type="monotone" 
                   dataKey="cuarte" 
                   stackId="3"
-                  stroke="hsl(var(--secondary))" 
-                  fill="hsl(var(--secondary))"
+                  stroke="hsl(var(--cuarte-color))" 
+                  fill="hsl(var(--cuarte-color))"
                   fillOpacity={0.3}
                   strokeWidth={2}
                 />
@@ -285,13 +285,13 @@ export default function OzoneDashboard() {
                 />
                  <Bar 
                   dataKey="casablanca" 
-                  fill="hsl(var(--accent))" 
+                  fill="hsl(var(--casablanca-color))" 
                   name="Casablanca"
                   radius={4}
                 />
                  <Bar 
                   dataKey="cuarte" 
-                  fill="hsl(var(--secondary))" 
+                  fill="hsl(var(--cuarte-color))" 
                   name="Cuarte de Huerva"
                   radius={4}
                 />
