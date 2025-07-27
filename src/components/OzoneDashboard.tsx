@@ -20,46 +20,53 @@ const ozoneData = {
       currentLevel: 72,
       status: "good",
       coordinates: [41.6367, -0.9204]
+    },
+    {
+      name: "Cuarte de Huerva",
+      id: "cuarte",
+      currentLevel: 68,
+      status: "good",
+      coordinates: [41.6100, -0.9500]
     }
   ],
   
   // Datos históricos de las últimas 24 horas (μg/m³)
   hourlyData: [
-    { time: "00:00", centro: 65, casablanca: 58 },
-    { time: "01:00", centro: 62, casablanca: 55 },
-    { time: "02:00", centro: 60, casablanca: 53 },
-    { time: "03:00", centro: 58, casablanca: 51 },
-    { time: "04:00", centro: 55, casablanca: 48 },
-    { time: "05:00", centro: 53, casablanca: 47 },
-    { time: "06:00", centro: 58, casablanca: 52 },
-    { time: "07:00", centro: 68, casablanca: 61 },
-    { time: "08:00", centro: 75, casablanca: 68 },
-    { time: "09:00", centro: 82, casablanca: 74 },
-    { time: "10:00", centro: 88, casablanca: 79 },
-    { time: "11:00", centro: 92, casablanca: 83 },
-    { time: "12:00", centro: 95, casablanca: 86 },
-    { time: "13:00", centro: 98, casablanca: 89 },
-    { time: "14:00", centro: 102, casablanca: 92 },
-    { time: "15:00", centro: 105, casablanca: 95 },
-    { time: "16:00", centro: 108, casablanca: 98 },
-    { time: "17:00", centro: 95, casablanca: 88 },
-    { time: "18:00", centro: 89, casablanca: 82 },
-    { time: "19:00", centro: 86, casablanca: 79 },
-    { time: "20:00", centro: 83, casablanca: 76 },
-    { time: "21:00", centro: 78, casablanca: 71 },
-    { time: "22:00", centro: 73, casablanca: 67 },
-    { time: "23:00", centro: 68, casablanca: 62 }
+    { time: "00:00", centro: 65, casablanca: 58, cuarte: 55 },
+    { time: "01:00", centro: 62, casablanca: 55, cuarte: 52 },
+    { time: "02:00", centro: 60, casablanca: 53, cuarte: 50 },
+    { time: "03:00", centro: 58, casablanca: 51, cuarte: 48 },
+    { time: "04:00", centro: 55, casablanca: 48, cuarte: 45 },
+    { time: "05:00", centro: 53, casablanca: 47, cuarte: 44 },
+    { time: "06:00", centro: 58, casablanca: 52, cuarte: 49 },
+    { time: "07:00", centro: 68, casablanca: 61, cuarte: 58 },
+    { time: "08:00", centro: 75, casablanca: 68, cuarte: 65 },
+    { time: "09:00", centro: 82, casablanca: 74, cuarte: 71 },
+    { time: "10:00", centro: 88, casablanca: 79, cuarte: 76 },
+    { time: "11:00", centro: 92, casablanca: 83, cuarte: 80 },
+    { time: "12:00", centro: 95, casablanca: 86, cuarte: 83 },
+    { time: "13:00", centro: 98, casablanca: 89, cuarte: 86 },
+    { time: "14:00", centro: 102, casablanca: 92, cuarte: 89 },
+    { time: "15:00", centro: 105, casablanca: 95, cuarte: 92 },
+    { time: "16:00", centro: 108, casablanca: 98, cuarte: 95 },
+    { time: "17:00", centro: 95, casablanca: 88, cuarte: 85 },
+    { time: "18:00", centro: 89, casablanca: 82, cuarte: 79 },
+    { time: "19:00", centro: 86, casablanca: 79, cuarte: 76 },
+    { time: "20:00", centro: 83, casablanca: 76, cuarte: 73 },
+    { time: "21:00", centro: 78, casablanca: 71, cuarte: 68 },
+    { time: "22:00", centro: 73, casablanca: 67, cuarte: 64 },
+    { time: "23:00", centro: 68, casablanca: 62, cuarte: 59 }
   ],
 
   // Promedios semanales
   weeklyAverages: [
-    { day: "Lun", centro: 78, casablanca: 72 },
-    { day: "Mar", centro: 82, casablanca: 75 },
-    { day: "Mié", centro: 85, casablanca: 78 },
-    { day: "Jue", centro: 88, casablanca: 81 },
-    { day: "Vie", centro: 91, casablanca: 84 },
-    { day: "Sáb", centro: 75, casablanca: 68 },
-    { day: "Dom", centro: 69, casablanca: 63 }
+    { day: "Lun", centro: 78, casablanca: 72, cuarte: 69 },
+    { day: "Mar", centro: 82, casablanca: 75, cuarte: 72 },
+    { day: "Mié", centro: 85, casablanca: 78, cuarte: 75 },
+    { day: "Jue", centro: 88, casablanca: 81, cuarte: 78 },
+    { day: "Vie", centro: 91, casablanca: 84, cuarte: 81 },
+    { day: "Sáb", centro: 75, casablanca: 68, cuarte: 65 },
+    { day: "Dom", centro: 69, casablanca: 63, cuarte: 60 }
   ]
 };
 
@@ -110,7 +117,7 @@ export default function OzoneDashboard() {
         </div>
 
         {/* Current Status Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ozoneData.stations.map((station, index) => {
             const quality = getAirQualityStatus(station.currentLevel);
             return (
@@ -208,10 +215,11 @@ export default function OzoneDashboard() {
                   }}
                   formatter={(value, name) => [
                     `${value} μg/m³`, 
-                    name === 'centro' ? 'Centro - Plaza España' : 'Casablanca'
+                    name === 'centro' ? 'Centro - Plaza España' : 
+                    name === 'casablanca' ? 'Casablanca' : 'Cuarte de Huerva'
                   ]}
                 />
-                <Area 
+                 <Area 
                   type="monotone" 
                   dataKey="centro" 
                   stackId="1"
@@ -226,6 +234,15 @@ export default function OzoneDashboard() {
                   stackId="2"
                   stroke="hsl(var(--accent))" 
                   fill="hsl(var(--accent))"
+                  fillOpacity={0.3}
+                  strokeWidth={2}
+                />
+                 <Area 
+                  type="monotone" 
+                  dataKey="cuarte" 
+                  stackId="3"
+                  stroke="hsl(var(--secondary))" 
+                  fill="hsl(var(--secondary))"
                   fillOpacity={0.3}
                   strokeWidth={2}
                 />
@@ -270,6 +287,12 @@ export default function OzoneDashboard() {
                   dataKey="casablanca" 
                   fill="hsl(var(--accent))" 
                   name="Casablanca"
+                  radius={4}
+                />
+                 <Bar 
+                  dataKey="cuarte" 
+                  fill="hsl(var(--secondary))" 
+                  name="Cuarte de Huerva"
                   radius={4}
                 />
                 <ReferenceLine 
