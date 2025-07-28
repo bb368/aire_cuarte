@@ -212,7 +212,9 @@ export default function OzoneDashboard() {
                   contentStyle={{
                     backgroundColor: 'hsl(var(--card))',
                     border: '1px solid hsl(var(--border))',
-                    borderRadius: '8px'
+                    borderRadius: '8px',
+                    minWidth: '200px',
+                    whiteSpace: 'nowrap'
                   }}
                   formatter={(value, name) => {
                     const color = name === 'cuarte' ? '#16a34a' : '#000000'; // Verde oscuro para Cuarte, negro para otros
@@ -280,7 +282,9 @@ export default function OzoneDashboard() {
                   contentStyle={{
                     backgroundColor: 'hsl(var(--card))',
                     border: '1px solid hsl(var(--border))',
-                    borderRadius: '8px'
+                    borderRadius: '8px',
+                    minWidth: '200px',
+                    whiteSpace: 'nowrap'
                   }}
                   formatter={(value, name) => {
                     const color = name === 'cuarte' ? '#16a34a' : '#000000'; // Verde oscuro para Cuarte, negro para otros
