@@ -1,0 +1,21 @@
+// src/services/airQuality.ts
+const BASE_URL =
+  "https://www.zaragoza.es/sede/servicio/medio-ambiente/calidad-aire";
+
+export interface StationReading {
+  id: number;
+  municipio: string;
+  estacion: string;
+  magnitud: string;
+  valor: number;
+  fecha: string;          // e.g. "2024-05-08T00:00:00Z"
+}
+
+export async function getDailyReadings(date: string) {
+  // date en formato YYYY-MM-DD
+  const res = await fetch(
+    `${BASE_URL}?fecha=${date}&municipio=Cuarte%20de%20Huerva`
+  );
+  if (!res.ok) throw new Error("Error al obtener lecturas de calidad del aire");
+  return (await res.json()) as StationReading[];
+}
